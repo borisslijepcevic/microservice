@@ -1,0 +1,29 @@
+#  http://localhost:8888/hotel_application/default
+
+#  registration post link localhost:8080/api/v1/registration
+
+#  registration confirm get localhost:8080/api/v1/registration/confirm?token= enter token here
+
+# JSON body for registration request:
+
+{
+  "firstName" : "Boris",
+  "lastName" : "Slijepcevic",
+  "address" :
+  [
+    {
+      "streetName" : "Spasovdanska",
+      "streetNumber" : 16,
+      "town" : "Sarajevo",
+      "state" : "BiH"
+    },
+    {
+      "streetName" : "Boska Vujadina",
+      "streetNumber" : 85,
+      "town" : "Sarajevo",
+      "state" : "BiH"
+    }
+  ],
+  "email" : "boris@example.com",
+  "password" : "boris123"
+}
