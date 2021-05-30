@@ -46,9 +46,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private Boolean locked = false;
+    private boolean locked = false;
 
-    private Boolean enabled = false;
+    private boolean enabled = false;
 
     public User(String firstName, String lastName, List<Address> address,
                 String email, String password, Role role) {

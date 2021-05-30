@@ -31,7 +31,7 @@ public class UserService implements UserDetailsService {
     }
 
     public String singUpUser(User user){
-        Boolean userExists =
+        boolean userExists =
                 userRepository.findByEmail(user.getEmail())
                 .isPresent();
         if(userExists){
