@@ -20,7 +20,7 @@ public class Room {
 
     private String type;
 
-    private boolean isFree = true;
+    private boolean isFree;
 
     public Room(String type, boolean isFree) {
         this.type = type;

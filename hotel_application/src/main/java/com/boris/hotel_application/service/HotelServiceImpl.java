@@ -2,10 +2,12 @@ package com.boris.hotel_application.service;
 
 import com.boris.hotel_application.dao.HotelRepository;
 import com.boris.hotel_application.entity.Hotel;
+import com.boris.hotel_application.entity.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +46,24 @@ public class HotelServiceImpl implements HotelService{
     }
 
     @Override
-    public void deleteById() {
+    public List<Room> roomList(Long hotel_id) {
+        Optional<Hotel> hotel = hotelRepository.findById(hotel_id);
+        List<Room> rooms;
+        if(hotel.isPresent()){
+            rooms = hotel.get().getRoomList();
+        } else {
+            throw new RuntimeException("Hotel not found.");
+        }
+        return rooms;
+    }
 
+    @Override
+    public void deleteById(Long hotel_id) {
+        Optional<Hotel> hotel = hotelRepository.findById(hotel_id);
+        if(hotel.isPresent()) {
+            hotelRepository.deleteById(hotel_id);
+        }else {
+            throw new RuntimeException("Hotel not found.");
+        }
     }
 }
