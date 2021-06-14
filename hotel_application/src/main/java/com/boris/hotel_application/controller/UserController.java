@@ -31,12 +31,12 @@ public class UserController {
         return hotelService.save(request);
     }
 
-    @GetMapping("/{findById}")
+    @GetMapping("/user/{findById}")
     public Optional<Hotel> hotelById(@PathVariable Long findById){
         return hotelService.findById(findById);
     }
 
-    @GetMapping("/{hotel_r_id}/rooms")
+    @GetMapping("/user/{hotel_r_id}/rooms")
     public List<Room> availableRoomsInHotel(@PathVariable Long hotel_r_id){
         return hotelService.roomList(hotel_r_id);
     }

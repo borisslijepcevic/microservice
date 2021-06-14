@@ -23,8 +23,11 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
 
+
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
         return userRepository.findByEmail(email).
                 orElseThrow(() -> new UsernameNotFoundException(String.format(
                         USER_NOT_FOUND_MSG, email)));
